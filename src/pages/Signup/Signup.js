@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
+    const handleSignUp = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const name = form.name.value;
+    }
     return (
         <section className="h-screen">
             <div className="px-6 h-full text-gray-800">
@@ -14,13 +21,13 @@ const Signup = () => {
                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" alt="" />
                     </div>
                     <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                        <form>
+                        <form onSubmit={handleSignUp}>
                             <h1 className='text-3xl font-bold text-blue-600 mb-5'>Signup</h1>
                             <div className="mb-6">
                                 <input
                                     type="text"
                                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleFormControlInput2"
+                                    id="exampleFormControlInput1"
                                     placeholder="Name"
                                     name='name'
                                 />
@@ -40,7 +47,7 @@ const Signup = () => {
                                 <input
                                     type="password"
                                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleFormControlInput2"
+                                    id="exampleFormControlInput3"
                                     placeholder="Password"
                                     name='password'
                                 />
@@ -48,7 +55,7 @@ const Signup = () => {
 
                             <div className="text-center lg:text-left">
                                 <button
-                                    type="button"
+                                    type="submit"
                                     className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                                 >
                                     Signup
