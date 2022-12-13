@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProver';
 
 const Signup = () => {
+
+    const {createUser} = useContext(AuthContext);
+
     const handleSignUp = event =>{
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value;
+
+        createUser(email,password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+            form.reset();
+            toast.success('Sucessfully Signup')
+            
+        })
+        .catch(error =>{
+            toast.error(error.message)
+        })
     }
     return (
         <section className="h-screen">
@@ -63,7 +80,7 @@ const Signup = () => {
                                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
                                     Already have an account?
                                     <Link
-                                        to="#!"
+                                        to="/login"
                                         className="text-red-600 ml-2 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                                     >Login</Link
                                     >
