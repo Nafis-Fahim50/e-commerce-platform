@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProver';
 
 const Navbar = () => {
+    const {user, logout} = useContext(AuthContext)
+
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/signup'>Signup</Link></li>
+        {
+            user?.uid?
+            <>
+            <button onClick={logout} className='bg-red-500 py-2 px-3 rounded-lg text-white'><Link to='/login'>LogOut</Link></button>
+            </>
+            :
+            <>
+                <li><Link to='/signup'>Signup</Link></li>
+                <li><Link to='/login'>Login</Link></li>
+            </>
+        }
     </>
     return (
         <div className="navbar bg-base-100">
