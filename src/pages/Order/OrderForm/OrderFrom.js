@@ -26,7 +26,7 @@ const OrderFrom = () => {
             address
         }
 
-        fetch('http://localhost:5000/orders',{
+        fetch('https://e-commerce-server-two.vercel.app/orders',{
             method: 'POST',
             headers:{
                 'content-type':'application/json'

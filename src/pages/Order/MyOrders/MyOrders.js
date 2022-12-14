@@ -4,9 +4,9 @@ import { AuthContext } from '../../../Context/AuthProvider/AuthProver';
 const MyOrders = () => {
     const { user, logout } = useContext(AuthContext)
     const [orders, setOrders] = useState([])
-
+   
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`,{
+        fetch(`https://e-commerce-server-two.vercel.app/orders?email=${user?.email}`,{
             headers:{
                 authorization : `Bearer ${localStorage.getItem('access-token')}`
             }
@@ -23,9 +23,14 @@ const MyOrders = () => {
             })
     }, [user?.email, logout])
 
+    if(orders.length === 0){
+        return <button className="btn loading mx-auto my-12 ml-96">loading</button>
+    }
+
+
     return (
         <div>
-            <h1 className='text-2xl font-bold text-center text-primary my-5'>Total Orders: {orders.length}</h1>
+            <h1 className='text-2xl font-bold text-center text-primary my-5'>Total Orders: {orders?.length}</h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
