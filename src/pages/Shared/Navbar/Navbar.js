@@ -8,6 +8,7 @@ const Navbar = () => {
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/products'>Products</Link></li>
+        <li><Link to='/orders'>My Orders</Link></li>
         {
             user?.uid?
             <>
