@@ -10,7 +10,7 @@ const Slider = () => {
                 <div className="max-w-md">
                     <h1 className="mb-5 text-2xl font-bold">Welcome to REPLIQ E-Commerce Platrform</h1>
                     <p className="mb-5">Here you can find different kind of products. Such as Smart-Phone, Laptop, Watch, Earphone and so many daily uses products.</p>
-                    <Link><button className="btn btn-primary">Shop Now</button></Link>
+                    <Link to='/products'><button className="btn btn-primary">Shop Now</button></Link>
                 </div>
             </div>
         </div>
