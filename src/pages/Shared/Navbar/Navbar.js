@@ -8,10 +8,10 @@ const Navbar = () => {
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/products'>Products</Link></li>
-        <li><Link to='/orders'>My Orders</Link></li>
         {
             user?.uid?
             <>
+            <li><Link to='/orders'>My Orders</Link></li>
             <button onClick={logout} className='bg-red-500 py-2 px-3 rounded-lg text-white'><Link to='/login'>LogOut</Link></button>
             </>
             :

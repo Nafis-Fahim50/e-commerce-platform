@@ -6,6 +6,7 @@ import MyOrders from "../../pages/Order/MyOrders/MyOrders";
 import OrderFrom from "../../pages/Order/OrderForm/OrderFrom";
 import Products from "../../pages/Products/Products";
 import Signup from "../../pages/Signup/Signup";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -30,12 +31,12 @@ const router = createBrowserRouter([
             },
             {
                 path:'products/:id',
-                element: <OrderFrom></OrderFrom>,
+                element: <PrivateRoute><OrderFrom></OrderFrom></PrivateRoute>,
                 loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
                 path:'orders',
-                element:<MyOrders></MyOrders>
+                element:<PrivateRoute><MyOrders></MyOrders></PrivateRoute>
             }
         ]
     },
