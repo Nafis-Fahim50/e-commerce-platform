@@ -11,7 +11,7 @@ const OrderFrom = () => {
     const handlePlaceOrder = event =>{
         event.preventDefault();
         const form = event.target;
-        const name = `${form.firstName.value} ${form.lastName.value}`
+        const cutomerName = `${form.firstName.value} ${form.lastName.value}`
         const email = user?.email || 'unregistered'
         const phone = form.phone.value;
         const address = form.address.value;
@@ -20,7 +20,7 @@ const OrderFrom = () => {
             productId: _id,
             productName : name,
             price,
-            customer: name,
+            customer: cutomerName,
             email,
             phone,
             address
@@ -45,7 +45,7 @@ const OrderFrom = () => {
     }
     return (
         <div className='mt-5'>
-            <h1 className='text-4xl mb-2 font-bold text-rose-500 text-center'>Checkout</h1>
+            <h1 className='text-4xl mb-2 font-bold text-primary text-center'>Checkout</h1>
             <div className='mb-7 text-center'>
                 <h2><span className='font-semibold'>You are about to order: </span>{name}</h2>
                 <h4><span className='font-semibold'>Price: </span>$ {price}</h4>
